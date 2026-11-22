@@ -3,8 +3,6 @@ package counter;
 
 /**
  * WordProcessor implementation of the Counter interface.
- *
- * Complete this class in Step 2 and Step 3 on your feature branches.
  */
 public class WordProcessor implements Counter {
 
@@ -20,7 +18,7 @@ public class WordProcessor implements Counter {
         this.text = text;
     }
 
-    // STEP 2: Core Sentence Analysis Methods
+    // STEP 2 and STEP 3: Core Sentence Analysis Methods
 
     /**
      * Counts the number of words in the given sentence.
@@ -30,6 +28,11 @@ public class WordProcessor implements Counter {
      */
     @Override
     public int countWords(String sentence) {
+
+        if (sentence == null) {
+            sentence = this.text;
+        }
+
         if (sentence.isEmpty()) {
             return 0;
         }
@@ -38,14 +41,18 @@ public class WordProcessor implements Counter {
     }
 
     /**
-     * Counts alphabetic letters only, ignoring spaces,
-     * punctuation, and digits.
+     * Counts alphabetic letters only.
      *
      * @param sentence input string to analyze
      * @return count of alphabetic letters
      */
     @Override
     public int countLetters(String sentence) {
+
+        if (sentence == null) {
+            sentence = this.text;
+        }
+
         int letters = 0;
 
         for (int i = 0; i < sentence.length(); i++) {
@@ -58,14 +65,18 @@ public class WordProcessor implements Counter {
     }
 
     /**
-     * Returns the total character length of the sentence,
-     * including spaces.
+     * Returns the total character length of the sentence.
      *
      * @param sentence input string to analyze
      * @return total length
      */
     @Override
     public int getLength(String sentence) {
+
+        if (sentence == null) {
+            sentence = this.text;
+        }
+
         return sentence.length();
     }
 }
